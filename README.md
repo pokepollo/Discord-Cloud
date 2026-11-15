@@ -6,7 +6,8 @@ Almacenamiento privado tipo nube que usa canales/webhooks de Discord como backen
 
 
 
-<img width="935" height="848" alt="c0356a96576dde738724bf2025095094" src="https://github.com/user-attachments/assets/5c1fa9c0-1b3d-46b7-94a9-a475f213ebdf" />
+<img width="1233" height="857" alt="4a71d91784b55ee49356d0ca303acc46" src="https://github.com/user-attachments/assets/f62e46a9-e3a9-493a-b633-ee79072e3ddf" />
+
 
 
 
