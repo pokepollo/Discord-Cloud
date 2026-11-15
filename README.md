@@ -2,6 +2,14 @@
 
 Almacenamiento privado tipo nube que usa canales/webhooks de Discord como backend: divide archivos en chunks, los sube en paralelo y los reensambla al descargar. Incluye asistente de configuración por consola, panel web con autenticación, enlaces compartidos y herramientas de diagnóstico.
 
+<img width="1836" height="1042" alt="b36b4a100fc1de223a717ac3b49023d0" src="https://github.com/user-attachments/assets/d896aeb7-7aea-4837-80d1-e2417f86a996" />
+
+
+
+<img width="935" height="848" alt="c0356a96576dde738724bf2025095094" src="https://github.com/user-attachments/assets/5c1fa9c0-1b3d-46b7-94a9-a475f213ebdf" />
+
+
+
 ## Configuración inicial (consola)
 
 En el primer arranque, si no existe `.env`, el proyecto puede configurarse desde la consola (token del bot o webhooks y parámetros necesarios).
