@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Discord Cloud</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="app">
+  <aside class="sidebar">
+    <div class="brand small"><span class="logo">☁</span><span>Discord Cloud</span></div>
+    <nav>
+      <a href="#" class="nav-item active" data-view="files">Archivos</a>
+      <a href="#" class="nav-item" data-view="tools">Herramientas</a>
+    </nav>
+    <div class="sidebar-footer">
+      <button id="logoutBtn" class="ghost full">Cerrar sesión</button>
+    </div>
+  </aside>
+  <main class="main">
+    <header class="topbar">
+      <div>
+        <h1 id="viewTitle">Archivos</h1>
+        <p class="subtitle" id="subtitle">Tu almacenamiento privado en Discord</p>
+      </div>
+      <div class="top-actions">
+        <input id="search" type="search" placeholder="Buscar archivos...">
+      </div>
+    </header>
+
+    <section id="view-files" class="view">
+      <div class="stats" id="stats"></div>
+      <div class="card upload-card">
+        <div id="dropzone" class="dropzone">
+          <div class="dz-icon">⬆</div>
+          <p><strong>Arrastra archivos aquí</strong> o haz clic para seleccionar</p>
+          <small>Hasta 2 GB por archivo · División automática en chunks</small>
+          <input id="fileInput" type="file" multiple hidden>
+        </div>
+        <div id="uploads" class="uploads"></div>
+      </div>
+      <div class="card">
+        <div class="card-head">
+          <h2>Biblioteca</h2>
+          <button id="refresh" class="ghost">Refrescar</button>
+        </div>
+        <div class="table-wrap">
+          <table class="file-table">
+            <thead><tr><th>Nombre</th><th>Tamaño</th><th>Chunks</th><th>Fecha</th><th></th></tr></thead>
+            <tbody id="fileList"></tbody>
+          </table>
+          <div id="empty" class="empty">No hay archivos todavía.</div>
+        </div>
+      </div>
+    </section>
+
+    <section id="view-tools" class="view hidden">
+      <div class="grid">
+        <div class="card">
+          <h3>Estado del sistema</h3>
+          <div id="sysStats" class="kv"></div>
+        </div>
+        <div class="card">
+          <h3>Concurrencia de subida</h3>
+          <div class="mode-switch">
+            <button id="modeDefault" class="secondary">Por defecto (4)</button>
+            <button id="modeAuto" class="secondary">Automático</button>
+          </div>
+          <p class="muted" style="margin:.6rem 0"><strong>Por defecto:</strong> usa concurrencia fija de 4 chunks en paralelo (estable y recomendado).</p>
+          <p class="muted" style="margin:.2rem 0 .6rem"><strong>Automático:</strong> ejecuta una prueba real enviando chunks de test a Discord con distintas concurrencias, mide tiempo/errores, elimina los mensajes de prueba y selecciona la concurrencia más rápida y estable. La subida usará ese valor hasta que vuelvas a calibrar.</p>
+          <div class="tool-list">
+            <button id="toolBenchmark" class="primary">Calibrar automático</button>
+          </div>
+          <div id="concurrencyStatus" class="kv"></div>
+          <div id="benchmarkResults" class="health-results"></div>
+        </div>
+        <div class="card">
+          <h3>Herramientas rápidas</h3>
+          <div class="tool-list">
+            <button id="toolRefreshMeta" class="secondary">Recargar metadatos</button>
+            <button id="toolExportMeta" class="secondary">Exportar índice (JSON)</button>
+            <button id="toolExportShares" class="secondary">Exportar enlaces compartidos</button>
+            <button id="toolCleanupTmp" class="secondary">Limpiar temporales</button>
+          </div>
+          <div id="quickToolResult" class="muted"></div>
+        </div>
+        <div class="card">
+          <h3>Configuración activa</h3>
+          <div class="kv">
+            <div><span>Canales/webhooks</span><strong id="cfgChannels">-</strong></div>
+            <div><span>Tamaño de chunk</span><strong id="cfgChunk">-</strong></div>
+            <div><span>Concurrencia de subida</span><strong>4</strong></div>
+            <div><span>Límite por archivo</span><strong>2 GB</strong></div>
+          </div>
+        </div>
+        <div class="card span2">
+          <div class="card-head"><h3>Health Scanner & Auto-Diagnóstico</h3><button id="toolHealthScan" class="primary">Ejecutar escaneo</button></div>
+          <p class="muted">Herramienta avanzada: verifica en paralelo la disponibilidad de cada chunk en Discord/CDN, mide latencia y genera un diagnóstico de integridad por archivo y global.</p>
+          <div id="healthSummary" class="health-summary"></div>
+          <div id="healthResults" class="health-results"></div>
+        </div>
+        <div class="card span2">
+          <div class="card-head"><h3>Distribución de almacenamiento</h3><button id="toolBreakdown" class="secondary">Analizar</button></div>
+          <div id="breakdownResults" class="breakdown"></div>
+        </div>
+      </div>
+    </section>
+  </main>
+</div>
+<script src="app.js"></script>
+</body>
+</html>
