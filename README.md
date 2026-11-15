@@ -1,6 +1,6 @@
 # Discord Cloud
 
-App Web que usa servidores/canales de Discord como almacenamiento. Los archivos se parten en chunks de ~19 MB y se suben a distintos canales mediante webhooks; al descargar se reensamblan.
+App Web que usa servidores/canales de Discord como almacenamiento. Los archivos se parten en chunks de ~19 MB y se suben a distintos canales mediante webhooks; al descargar se reensamblan. De esta manera podemos utilizar la CDN de Discord como nuestro servidor de almacenamiento, el limite se puede editar por defecto maximo mor archivo 2GB.
 
 <img width="1836" height="1042" alt="b36b4a100fc1de223a717ac3b49023d0" src="https://github.com/user-attachments/assets/d896aeb7-7aea-4837-80d1-e2417f86a996" />
 
