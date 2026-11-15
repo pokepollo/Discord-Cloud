@@ -1,6 +1,6 @@
 # Discord Cloud
 
-Sitio web privado que usa servidores/canales de Discord como almacenamiento. Los archivos se parten en chunks de ~19 MB y se suben a distintos canales mediante webhooks; al descargar se reensamblan.
+Almacenamiento privado tipo nube que usa canales/webhooks de Discord como backend: divide archivos en chunks, los sube en paralelo y los reensambla al descargar. Incluye asistente de configuración por consola, panel web con autenticación, enlaces compartidos y herramientas de diagnóstico.
 
 ## Configuración inicial (consola)
 
